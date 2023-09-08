@@ -2,14 +2,18 @@ import { TCar } from '@/types/Car'
 import { TFilterCars } from '@/types/Filter'
 
 export async function fetchCars(filters: TFilterCars) {
+  const apiKey = process.env.NEXT_PUBLIC_CARS_API_KEY as string
+  const apiHost = process.env.NEXT_PUBLIC_CARS_API_HOST as string
+  const apiUrl = process.env.NEXT_PUBLIC_CARS_API_URL as string
+
   const { manufacturer, model, year, fuel, limit } = filters
   const headers = {
-    'X-RapidAPI-Key': '6d0e3cd3c6msh18c126052e07a85p15044fjsn23e10284b2b0',
-    'X-RapidAPI-Host': 'cars-by-api-ninjas.p.rapidapi.com',
+    'X-RapidAPI-Key': apiKey,
+    'X-RapidAPI-Host': apiHost,
   }
 
   const response = await fetch(
-    `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${manufacturer}&model=${model}&year=${year}&fuel_type=${fuel}&limit=${limit}`,
+    `${apiUrl}/cars?make=${manufacturer}&model=${model}&year=${year}&fuel_type=${fuel}&limit=${limit}`,
     {
       headers,
     },
@@ -35,11 +39,13 @@ export const calculateRentAmount = (city_mpg: number, year: number) => {
 }
 
 export const generateCarImageUrl = (car: TCar, angle?: string) => {
-  const url = new URL('https://cdn.imagin.studio/getimage')
+  const apiUrl = process.env.NEXT_PUBLIC_IMAGES_API_URL as string
+  const apiKey = process.env.NEXT_PUBLIC_IMAGES_API_KEY as string
 
+  const url = new URL(`${apiUrl}/getimage`)
   const { make, year, model } = car
 
-  url.searchParams.append('customer', 'hrjavascript-mastery')
+  url.searchParams.append('customer', apiKey)
   url.searchParams.append('make', make)
   url.searchParams.append('modelFamily', model.split(' ')[0])
   url.searchParams.append('zoomType', 'fullscreen')
