@@ -1,4 +1,5 @@
-import { CarCard, CustomFilter, Hero, SearchBar } from '@/components'
+import { CarCard, CustomFilter, Hero, SearchBar, ShowMore } from '@/components'
+import { fuels, yearsOfProduction } from '@/constants'
 import { TCar } from '@/types/Car'
 import { TFilterCars } from '@/types/Filter'
 import { fetchCars } from '@/utils'
@@ -9,7 +10,7 @@ interface HomeProps {
 
 export default async function Home({ searchParams }: HomeProps) {
   const allCars = await fetchCars({
-    manufacturer: searchParams.manufacturer,
+    manufacturer: searchParams.manufacturer || '',
     model: searchParams.model || '',
     year: searchParams.year || 2022,
     fuel: searchParams.fuel || '',
@@ -30,8 +31,8 @@ export default async function Home({ searchParams }: HomeProps) {
             <SearchBar />
 
             <div className="home__filter-container">
-              <CustomFilter title="fuel" />
-              <CustomFilter title="year" />
+              <CustomFilter title="fuel" options={fuels} />
+              <CustomFilter title="year" options={yearsOfProduction} />
             </div>
           </div>
         </div>
@@ -43,6 +44,11 @@ export default async function Home({ searchParams }: HomeProps) {
                 <CarCard key={index} car={car} />
               ))}
             </div>
+
+            <ShowMore
+              pageNumber={(searchParams.limit || 10) / 10}
+              isLastPage={(searchParams.limit || 10) > allCars.length}
+            />
           </section>
         ) : (
           <div className="home__error-container">

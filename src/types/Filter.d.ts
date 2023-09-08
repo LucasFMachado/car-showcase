@@ -5,3 +5,8 @@ export type TFilterCars = {
   fuel: string
   limit: number
 }
+
+export type TFilterOption = {
+  title: string
+  value: string
+}
