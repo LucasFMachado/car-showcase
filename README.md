@@ -63,6 +63,8 @@ Project layout on desktop:
 ![Desktop 2](https://github.com/LucasFMachado/car-showcase/assets/28274599/228a50c2-1c50-45c0-bddd-7b7661d470ff)
 <br />
 ![Desktop 3](https://github.com/LucasFMachado/car-showcase/assets/28274599/c76d3938-868c-4f68-ac67-3f23fb71b1e7)
+<br />
+![Desktop modal](https://github.com/LucasFMachado/car-showcase/assets/28274599/a97cb6dd-e066-4d02-bef2-7468274ca19d)
 
 
 Project layout on mobile:
@@ -72,3 +74,5 @@ Project layout on mobile:
 ![Mobile 2](https://github.com/LucasFMachado/car-showcase/assets/28274599/05812262-8751-4b8a-abe9-934ba3d4356d)
 <br />
 ![Mobile 3](https://github.com/LucasFMachado/car-showcase/assets/28274599/bbbeaa16-8305-469c-a686-8dafa4f02977)
+<br />
+![Mobile modal](https://github.com/LucasFMachado/car-showcase/assets/28274599/6f4e6b3b-ecc1-4c1a-a13c-973e9607d659)
