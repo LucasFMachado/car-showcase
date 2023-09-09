@@ -57,7 +57,7 @@ const SearchBar = () => {
 
   return (
     <form className="searchbar" onSubmit={handleSearch}>
-      <div className="searchbar__item">
+      <div className="searchbar_item">
         <SearchManufactorer
           manufacturer={manufacturer}
           setManufacturer={setManufacturer}
@@ -65,7 +65,7 @@ const SearchBar = () => {
         <SearchButton otherClasses="sm:hidden" />
       </div>
 
-      <div className="searchbar__item">
+      <div className="searchbar_item">
         <Image
           src="/model-icon.png"
           width={25}
@@ -79,7 +79,7 @@ const SearchBar = () => {
           value={model}
           onChange={e => setModel(e.target.value)}
           placeholder="Tiguan"
-          className="searchbar__input"
+          className="searchbar_input"
         />
         <SearchButton otherClasses="sm:hidden" />
       </div>

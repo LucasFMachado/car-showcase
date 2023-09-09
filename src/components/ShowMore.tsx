@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation'
 
-import { updateSearchParams } from '@/utils'
+import { updateSearchParams } from '@/utils/updateSearchParams'
 
 import { CustomButton } from '.'
 
@@ -25,7 +25,7 @@ const ShowMore = ({ pageNumber, isLastPage }: ShowMoreProps) => {
       {!isLastPage && (
         <CustomButton
           title="Show More"
-          containerStyles="bg-primary-blue rounded-full text-white"
+          containerStyles="bg-blue-600 rounded-full text-white"
           handleClick={handleNavigation}
         />
       )}

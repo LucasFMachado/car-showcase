@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 import { Fragment, useState } from 'react'
 
 import { TFilterOption } from '@/types/Filter'
-import { updateSearchParams } from '@/utils'
+import { updateSearchParams } from '@/utils/updateSearchParams'
 
 interface CustomFilterProps {
   title: string
@@ -32,7 +32,7 @@ const CustomFilter = ({ title, options }: CustomFilterProps) => {
         }}
       >
         <div className="relative w-fit z-10">
-          <Listbox.Button className="custom-filter__btn">
+          <Listbox.Button className="custom_filter_btn">
             <span className="block truncate">{selected.title}</span>
             <Image
               src="/chevron-up-down.svg"
@@ -49,14 +49,14 @@ const CustomFilter = ({ title, options }: CustomFilterProps) => {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Listbox.Options className="custom-filter__options">
+            <Listbox.Options className="custom_filter_options">
               {options.map(option => (
                 <Listbox.Option
                   key={option.title}
                   value={option}
                   className={({ active }) =>
                     `relative cursor-default select-none py-2 px-4 ${
-                      active ? 'bg-primary-blue text-white' : 'text-gray-900'
+                      active ? 'bg-blue-600 text-white' : 'text-gray-900'
                     }`
                   }
                 >

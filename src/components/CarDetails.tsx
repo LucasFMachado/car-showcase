@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { Fragment } from 'react'
 
 import { TCar } from '@/types/Car'
-import { generateCarImageUrl } from '@/utils'
+import { generateCarImageUrl } from '@/utils/generateCarImageUrl'
 
 interface CarDetailsProps {
   isOpen: boolean
@@ -41,11 +41,11 @@ const CarDetails = ({ isOpen, onCloseModal, car }: CarDetailsProps) => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
               >
-                <Dialog.Panel className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto transform rounded-2xl bg-white p-6 text-left shadow-xl transition-all flex flex-col gap-5">
+                <Dialog.Panel className="car_details_dialog_panel">
                   <button
                     type="button"
                     onClick={onCloseModal}
-                    className="absolute top-2 right-2 z-10 w-fit p-2 bg-primary-blue-100 rounded-full"
+                    className="car_details_close_btn"
                   >
                     <Image
                       src="/close.svg"
@@ -57,7 +57,7 @@ const CarDetails = ({ isOpen, onCloseModal, car }: CarDetailsProps) => {
                   </button>
 
                   <div className="flex-1 flex flex-col gap-3">
-                    <div className="relative w-full h-40 bg-pattern bg-cover bg-center rounded-lg">
+                    <div className="car_details_main_image_content">
                       <Image
                         src={generateCarImageUrl(car)}
                         alt="Car model"
@@ -68,7 +68,7 @@ const CarDetails = ({ isOpen, onCloseModal, car }: CarDetailsProps) => {
                     </div>
 
                     <div className="flex gap-3">
-                      <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
+                      <div className="flex-1 relative w-full h-24 bg-gray-100 rounded-lg">
                         <Image
                           src={generateCarImageUrl(car, '29')}
                           alt="Car model"
@@ -77,7 +77,7 @@ const CarDetails = ({ isOpen, onCloseModal, car }: CarDetailsProps) => {
                           className="object-contain"
                         />
                       </div>
-                      <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
+                      <div className="flex-1 relative w-full h-24 bg-gray-100 rounded-lg">
                         <Image
                           src={generateCarImageUrl(car, '33')}
                           alt="Car model"
@@ -86,7 +86,7 @@ const CarDetails = ({ isOpen, onCloseModal, car }: CarDetailsProps) => {
                           className="object-contain"
                         />
                       </div>
-                      <div className="flex-1 relative w-full h-24 bg-primary-blue-100 rounded-lg">
+                      <div className="flex-1 relative w-full h-24 bg-gray-100 rounded-lg">
                         <Image
                           src={generateCarImageUrl(car, '13')}
                           alt="Car model"
@@ -109,10 +109,10 @@ const CarDetails = ({ isOpen, onCloseModal, car }: CarDetailsProps) => {
                           key={key}
                           className="flex justify-between gap-5 w-full text-right"
                         >
-                          <h4 className="text-grey capitalize">
+                          <h4 className="text-gray-500 capitalize">
                             {key.split('_').join(' ')}
                           </h4>
-                          <p className="text-black-100 font-semibold">
+                          <p className="text-slate-900 font-semibold">
                             {value}
                           </p>
                         </div>
